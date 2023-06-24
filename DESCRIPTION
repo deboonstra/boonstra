@@ -1,0 +1,17 @@
+Package: boonstra
+Title: Collection of functions that I find useful
+Version: 0.0.0.9000
+Authors@R: 
+    person(
+      "D. Erik", "Boonstra", role = c("aut", "cre"),
+      email = "daniel-boonstra@uiowa.edu",
+      comment = c(ORCID = "0009-0005-1599-1809")
+    )
+Description: What the package does (one paragraph).
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.3
+Imports: 
+    graphics,
+    grDevices
