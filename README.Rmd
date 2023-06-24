@@ -1,0 +1,38 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# boonstra
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+This is package is a collection of functions that I, D. Erik Boonstra, find useful.
+
+## Installation
+
+You can install the development version of `boonstra` with
+
+``` r
+# install.packages("devtools")
+devtools::install_github("deboonstra/boonstra")
+```
+
+## Example
+
+This is a basic example which shows you how to solve a common problem:
+
+```{r example}
+library(boonstra)
+```
