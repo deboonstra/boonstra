@@ -7,12 +7,13 @@
 pal(n, alpha = 1)
 }
 \arguments{
-\item{n}{Number of colors to generate, evenly spaced on hcl scale}
+\item{n}{Number of colors to generate, evenly spaced on \code{grDevice::hcl} scale}
 
-\item{alpha}{Partial transparency}
+\item{alpha}{Partial transparency inherited from \code{grDevice::hcl}}
 }
 \description{
-Generate a nice palette of colors
+Generate a character vector of colors by specifying the specifying hue,
+chroma and luminance.
 }
 \examples{
 pal(3)

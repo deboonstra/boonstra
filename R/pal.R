@@ -1,7 +1,10 @@
 #' Generate a nice palette of colors
 #'
-#' @param n Number of colors to generate, evenly spaced on hcl scale
-#' @param alpha  Partial transparency
+#' Generate a character vector of colors by specifying the specifying hue,
+#' chroma and luminance.
+#'
+#' @param n Number of colors to generate, evenly spaced on `grDevice::hcl` scale
+#' @param alpha  Partial transparency inherited from `grDevice::hcl`
 #'
 #' @examples
 #' pal(3)
