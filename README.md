@@ -17,11 +17,3 @@ You can install the development version of `boonstra` with
 # install.packages("devtools")
 devtools::install_github("deboonstra/boonstra")
 ```
-
-## Example
-
-This is a basic example which shows you how to solve a common problem:
-
-``` r
-library(boonstra)
-```
