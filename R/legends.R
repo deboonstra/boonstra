@@ -1,19 +1,22 @@
-#' Automatic placement legends for plots
+#' Automatic placement of legends for plots
 #'
-#' @param horiz logical; if TRUE, set the legend horizontally rather than
-#' vertically (specifying horiz overrides the ncol specification)
-#' @param ... Further arguments to `legend()`
+#' Produce a legend either above or to the right of the plot window.
+#' @name legends
 #'
-#' @example
+#' @examples
 #' g <- stats::rbinom(10, 1, 0.5)
 #' x <- 1:10
 #' y <- 3 * x + 5
 #' plot(x, y, col = pal(2)[g+1], pch = 19, bty = "n")
 #' legend_top(legend = c("Group 1", "Group 2"), col = pal(2), pch = 19)
 #'
-#' @rdname legends
 #'
-#' @export
+#' @rdname legends
+#' @export legend_top
+#'
+#' @param horiz logical; if TRUE, set the legend horizontally rather than
+#' vertically (specifying horiz overrides the ncol specification)
+#' @param ... Further arguments to `legend()`
 legend_top <- function(horiz = TRUE, ...) {
   if (graphics::par("oma")[3] == 0) {
     x <- mean(graphics::par("usr")[1:2])
@@ -36,7 +39,8 @@ legend_top <- function(horiz = TRUE, ...) {
   }
 }
 
-#' @export
+#' @rdname legends
+#' @export legend_right
 legend_right <- function(...) {
   if (graphics::par("oma")[4] == 0) {
     y <- mean(graphics::par("usr")[3:4])
@@ -57,7 +61,7 @@ legend_right <- function(...) {
   }
 }
 
-#' @export
+# Helper function ####
 transform_coord <- function(x, p) {
   ba <- (x[2] - x[1]) / (p[2] - p[1])
   a <- x[1] - p[1] * ba
