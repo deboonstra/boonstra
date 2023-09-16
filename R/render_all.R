@@ -1,6 +1,6 @@
 render_all <- function(files, knit_root_dir = getwd(), quiet = TRUE, ...) {
   # check parameter values ####
-  if (class(files) != "character") {
+  if (!missing(files) && class(files) != "character") {
     stop("files is not a character vector of .Rmd, .R, or .md files.")
   }
 
