@@ -3,3 +3,4 @@
 export(legend_right)
 export(legend_top)
 export(pal)
+export(render_all)

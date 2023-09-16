@@ -1,3 +1,22 @@
+#' Automatic rendering of Rmarkdown files
+#'
+#' Silent rendering of a collection of Rmarkdown files with the current working
+#' directory as the knitting directory.
+#'
+#' @param files A vector of character values listing the .Rmd, .R, or .md files
+#' to render.
+#' @param knit_root_dir A character string specifying the knitting directory.
+#' Default is the current working directory with [getwd()].
+#' @param quiet An logical option to suprress printing during rendering from
+#' knitr, pandoc command line and others. Default is TRUE.
+#' @param ... Any other [rmarkdown::render()] parameters.
+#'
+#' @details If `files` is not specified, all .Rmd files in the current directory
+#' are located and rendered.
+#'
+#' @seealso [rmarkdown::render()]
+#'
+#' @export render_all
 render_all <- function(files, knit_root_dir = getwd(), quiet = TRUE, ...) {
   # check parameter values ####
   if (!missing(files) && class(files) != "character") {
