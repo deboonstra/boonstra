@@ -7,8 +7,8 @@
 #' g <- stats::rbinom(10, 1, 0.5)
 #' x <- 1:10
 #' y <- 3 * x + 5
-#' plot(x, y, col = pal(2)[g+1], pch = 19, bty = "n")
-#' legend_top(legend = c("Group 1", "Group 2"), col = pal(2), pch = 19)
+#' plot(x, y, col = boonstra::pal(2)[g + 1], pch = 19, bty = "n")
+#' legend_top(legend = c("A", "B"), col = boonstra::pal(2), pch = 19)
 #'
 #'
 #' @rdname legends
@@ -23,7 +23,7 @@ legend_top <- function(horiz = TRUE, ...) {
     yy <- transform_coord(graphics::par("usr")[3:4], graphics::par("plt")[3:4])
     y  <- mean(c(yy[2], graphics::par("usr")[4]))
     graphics::legend(
-        x, y, xpd = NA, bty = "n", xjust = 0.5, yjust = 0.5, horiz = horiz, ...
+      x, y, xpd = NA, bty = "n", xjust = 0.5, yjust = 0.5, horiz = horiz, ...
     )
   } else {
     g <- graphics::par("mfrow")
@@ -33,8 +33,36 @@ legend_top <- function(horiz = TRUE, ...) {
     yyy <- transform_coord(yy, c(g[1] - 1, g[1]) / g[1])
     yyyy <- transform_coord(yyy, graphics::par("omd")[3:4])
     graphics::legend(
-        mean(xxx), mean(c(yyy[2], yyyy[2])), xpd = NA, bty = "n",
-        xjust = 0.5, yjust = 0.5, horiz = horiz, ...
+      mean(xxx), mean(c(yyy[2], yyyy[2])), xpd = NA, bty = "n",
+      xjust = 0.5, yjust = 0.5, horiz = horiz, ...
+    )
+  }
+}
+
+legend_bottom <- function(horiz = TRUE, ...) {
+  if (graphics::par("oma")[1] == 0) {
+    x <- mean(graphics::par("usr")[1:2])
+    yy <- transform_coord(
+      x = graphics::par("usr")[4:3] - 1,
+      p = graphics::par("plt")[4:3]
+    )
+    y  <- mean(c(yy[1] - 1, graphics::par("usr")[3]))
+    graphics::legend(
+      x, y, xpd = NA, bty = "n", xjust = 0.5, yjust = 1, horiz = horiz, ...
+    )
+  } else {
+    g <- graphics::par("mfrow")
+    xx <- transform_coord(graphics::par("usr")[1:2], graphics::par("plt")[1:2])
+    yy <- transform_coord(
+      x = graphics::par("usr")[4:3] - 1,
+      p = graphics::par("plt")[4:3]
+    )
+    xxx <- transform_coord(xx, c(g[2] - 1, g[2]) / g[2])
+    yyy <- transform_coord(yy, c(g[1] - 1, g[1]) / g[1])
+    yyyy <- transform_coord(yyy, graphics::par("omd")[4:3])
+    graphics::legend(
+      mean(xxx), mean(c(yyy[2] - 1, yyyy[2])), xpd = NA, bty = "n",
+      xjust = 0.5, yjust = 1, horiz = horiz, ...
     )
   }
 }
@@ -55,8 +83,8 @@ legend_right <- function(...) {
     yyy <- transform_coord(yy, c(g[1] - 1, g[1]) / g[1])
     xxxx <- transform_coord(xxx, graphics::par("omd")[1:2])
     graphics::legend(
-        mean(c(xxx[2], xxxx[2])), mean(yyy), xpd = NA, bty = "n",
-        xjust = 0.5, yjust = 0.5, ...
+      mean(c(xxx[2], xxxx[2])), mean(yyy), xpd = NA, bty = "n",
+      xjust = 0.5, yjust = 0.5, ...
     )
   }
 }
