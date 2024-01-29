@@ -39,6 +39,8 @@ legend_top <- function(horiz = TRUE, ...) {
   }
 }
 
+#' @rdname legends
+#' @export legend_bottom
 legend_bottom <- function(horiz = TRUE, ...) {
   if (graphics::par("oma")[1] == 0) {
     x <- mean(graphics::par("usr")[1:2])
